@@ -40,6 +40,29 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lordjiiinx@gmail.com'
+EMAIL_HOST_PASSWORD = 'tgnuplgxonbbbpiq'
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'lordjiiinx@gmail.com'
+
+
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'backend',
+        'USER' :'joseph',
+        'PASSWORD' : 'password',
+        'HOST' : 'localhost',
+
+    }
+}
+
 
 TEMPLATES = [
     {
