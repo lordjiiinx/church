@@ -23,14 +23,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+   'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'rest_framework',
-     'users',
+     'members',
+     
      'rest_framework_simplejwt',
      'rest_framework_simplejwt.token_blacklist',
       "corsheaders",
@@ -50,6 +51,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+
+AUTH_USER_MODEL = 'members.newuser'
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
@@ -141,6 +144,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 REST_FRAMEWORK = {
 
