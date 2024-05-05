@@ -25,15 +25,24 @@ export default function Home() {
         display: 'flex',
         flexWrap: 'wrap',
         '& > :not(style)': {
-          m: 1,
-          width: 128,
-          height: 128,
+          my: 1,
+          width: 1,
+          
+          
         },
       }}
     >
-      <Paper elevation={0} />
-      <Paper />
-      <Paper elevation={3} />
+     
+      <Paper elevation={3} >
+       <div className='grid justify-items-center text-2xl'>
+        <p>PREACHING THE WORD, CHANGING THE WORLD</p>
+       <p> BELIEVE.RECEIVE.BECOME</p>
+               
+              
+       
+       </div>
+
+        </Paper>
     </Box>
       </div>
 
