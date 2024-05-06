@@ -1,13 +1,30 @@
+'use client'
+
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Image from 'next/image'
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import { useState } from 'react';
+import Button from '@mui/material/Button';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 import cropped from '../../public/cropped-cropped-KAG-LOGO-e1662111185707.png'
 
 
 
 
+
+
 export default function Home() {
+  const [group, setGroup] = useState('');
+  const handleChangeGroup = (event) => {
+    setGroup(event.target.value);
+    
+  };
+
   return (
     <div className="md:container md:rounded-md md:border md:border-indigo-600 md:mx-auto grid grid-cols-1 md:grid-cols-2">
 
@@ -71,7 +88,7 @@ An Urban Multi-Ethnic Congregation that Envisions to fulfill the Mission of God 
 
 
       <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg text-red text-center md:col-span-2 grid justify-items-center'>
-        <div className='p-2'>
+        <div className='p-2 '>
         <p><strong>The Great Commission.</strong></p>
 Matthew 28: 19-20
 19 Go therefore and make disciples of all nations, baptizing them in[a] the name of the Father and of the Son and of the Holy Spirit, 20 teaching them to observe all that I have commanded you. And behold, I am with you always, to the end of the age.”
@@ -92,16 +109,61 @@ Matthew 28: 19-20
         </div>
       </div>
 
-      <div>
+      <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg md:col-span-2 '>
 
-        <div className='bg-custom '>
-          kabb
-
-         
+        <div className='bg-custom h-96  text-silver text-center text-2xl  grid justify-items-center'>
+          <p className='p-2 mt-40'>
+          welcome to our sanctuary
+you may sign in  below to view our services, join a group or view and contribute to a project.
+          </p>
 
         </div>
 
-        <div>
+        <div className=''>
+          <div className='m-20'>
+
+             <TextField id="standard-basic" label="Email" variant="standard" sx={{width: 1}}/>
+          </div>
+          
+          <div className='m-20'>
+            <TextField id="standard-basic" label="name" variant="standard" sx={{width: 1}}/>
+          </div>
+
+          <div className='m-20'>
+          <InputLabel id="demo-simple-select-autowidth-label">Group</InputLabel>
+          <Select
+          labelId="demo-simple-select-autowidth-label"
+          id="demo-simple-select-autowidth"
+          value={group}
+          onChange={handleChangeGroup}
+          autoWidth
+          label="Group"
+        >
+           <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Youth & Teens</MenuItem>
+          <MenuItem value={22}>Women's Group</MenuItem>
+          <MenuItem value={22}>Men's group</MenuItem>
+        </Select>
+          </div>
+
+          <div>
+          <div className='m-20'>
+
+             <TextField type='password' id="standard-basic" label="password" variant="standard" sx={{width: 1}}/>
+          </div>
+
+          </div>
+          <div className='m-20'>
+          <Button variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>
+                         signin
+                 </Button>
+
+             
+          </div>
+
+         
 
         </div>
       </div>
