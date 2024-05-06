@@ -24,6 +24,11 @@ module.exports = {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
     },
+    extend: { backgroundImage: {
+
+      custom: "url('../../public/chair.png')" }
+      
+      }
     
   },
   plugins: [],

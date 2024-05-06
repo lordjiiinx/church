@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import Image from 'next/image'
 
 import cropped from '../../public/cropped-cropped-KAG-LOGO-e1662111185707.png'
-import Chair from '../../public/chair.png'
+
 
 
 
@@ -94,8 +94,10 @@ Matthew 28: 19-20
 
       <div>
 
-        <div className='bg-local h-40' style={{ backgroundImage: 'url(' + Chair + ')', backgroundSize: 'auto' }}>
-          kkaka
+        <div className='bg-custom '>
+          kabb
+
+         
 
         </div>
 
