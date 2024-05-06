@@ -56,8 +56,12 @@ export default function Home() {
       <Typography variant="body2" color="text.secondary" align="center" >
         {'Copyright © '}
         <Link color="inherit" href="#">
-        Waithaka, Nairobi, Kenya. Phone Number: +254 714774503. Email: kagwaithakamission@gmail.com
+          <div className='text-red text-center'>
+          Waithaka, Nairobi, Kenya. Phone Number: +254 714774503. Email: kagwaithakamission@gmail.com
 Copyright © 2024 KAG Waithaka Mission Center
+
+          </div>
+      
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -67,7 +71,7 @@ Copyright © 2024 KAG Waithaka Mission Center
 
   function handleSubmit(e) {
     e.preventDefault()
-    Instance.post('http://127.0.0.1:8000/api/signin',{
+    axios.post('http://127.0.0.1:8000/api/signin',{
       email : values.email,
       name : values.name,
       password : values.password,
@@ -214,9 +218,9 @@ you may sign in  below to view our services, join a group or view and contribute
            <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Youth & Teens</MenuItem>
-          <MenuItem value={22}>Women's Group</MenuItem>
-          <MenuItem value={22}>Men's group</MenuItem>
+          <MenuItem value={'youth'}>Youth & Teens</MenuItem>
+          <MenuItem value={'men'}>Women's Group</MenuItem>
+          <MenuItem value={'women'}>Men's group</MenuItem>
         </Select>
           </div>
 
