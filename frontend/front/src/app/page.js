@@ -10,6 +10,11 @@ import InputLabel from '@mui/material/InputLabel';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
+import axios
+ from "axios";
+
 
 import cropped from '../../public/cropped-cropped-KAG-LOGO-e1662111185707.png'
 
@@ -19,11 +24,60 @@ import cropped from '../../public/cropped-cropped-KAG-LOGO-e1662111185707.png'
 
 
 export default function Home() {
-  const [group, setGroup] = useState('');
+  const [group, setGroup] = useState(
+    {
+      categ : '',
+    }
+  );
   const handleChangeGroup = (event) => {
     setGroup(event.target.value);
     
   };
+  const [values, setValues] = useState({
+    email: "",
+    name: "",
+    
+    password: "",
+
+  })
+
+
+  function handleChange(e) {
+    const key = e.target.id;
+    const value = e.target.value
+    setValues(values => ({
+        ...values,
+        [key]: value,
+    }))
+  }
+
+  function Copyright() {
+    return (
+      <Typography variant="body2" color="text.secondary" align="center" >
+        {'Copyright © '}
+        <Link color="inherit" href="#">
+        Waithaka, Nairobi, Kenya. Phone Number: +254 714774503. Email: kagwaithakamission@gmail.com
+Copyright © 2024 KAG Waithaka Mission Center
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    Instance.post('http://127.0.0.1:8000/api/signin',{
+      email : values.email,
+      name : values.name,
+      password : values.password,
+      group : group.categ
+    }).then((res)=>{
+     console.log(res)
+
+    })
+    
+  }
 
   return (
     <div className="md:container md:rounded-md md:border md:border-indigo-600 md:mx-auto grid grid-cols-1 md:grid-cols-2">
@@ -122,11 +176,29 @@ you may sign in  below to view our services, join a group or view and contribute
         <div className=''>
           <div className='m-20'>
 
-             <TextField id="standard-basic" label="Email" variant="standard" sx={{width: 1}}/>
+             <TextField  margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={values.email}
+              onChange={handleChange} sx={{width: 1}}/>
           </div>
           
           <div className='m-20'>
-            <TextField id="standard-basic" label="name" variant="standard" sx={{width: 1}}/>
+            <TextField  margin="normal"
+              required
+              fullWidth
+              name="name"
+              label="name"
+              value={values.name}
+              onChange={handleChange}
+              
+              id="name"
+              autoComplete="name" sx={{width: 1}}/>
           </div>
 
           <div className='m-20'>
@@ -151,12 +223,21 @@ you may sign in  below to view our services, join a group or view and contribute
           <div>
           <div className='m-20'>
 
-             <TextField type='password' id="standard-basic" label="password" variant="standard" sx={{width: 1}}/>
+             <TextField type='password'  margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              value={values.password}
+              onChange={handleChange}
+              
+              id="password"
+              autoComplete="current-password" sx={{width: 1}}/>
           </div>
 
           </div>
           <div className='m-20'>
-          <Button variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>
+          <Button onClick={handleSubmit} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>
                          signin
                  </Button>
 
@@ -166,6 +247,11 @@ you may sign in  below to view our services, join a group or view and contribute
          
 
         </div>
+      </div>
+      
+
+      <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg md:col-span-2'>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
       </div>
 
       
