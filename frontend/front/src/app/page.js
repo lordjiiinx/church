@@ -25,14 +25,16 @@ import cropped from '../../public/cropped-cropped-KAG-LOGO-e1662111185707.png'
 
 export default function Home() {
   const [group, setGroup] = useState(
-    {
-      categ : '',
-    }
-  );
-  const handleChangeGroup = (event) => {
-    setGroup(event.target.value);
+    ''
     
-  };
+  );
+  
+    const handleGroupChange = (event) => {
+      setGroup(event.target.value);
+    };
+  
+    
+  
   const [values, setValues] = useState({
     email: "",
     name: "",
@@ -75,7 +77,7 @@ Copyright © 2024 KAG Waithaka Mission Center
       email : values.email,
       name : values.name,
       password : values.password,
-      group : group.categ
+      group : group
     }).then((res)=>{
      console.log(res)
 
@@ -84,7 +86,7 @@ Copyright © 2024 KAG Waithaka Mission Center
   }
 
   return (
-    <div className="md:container md:rounded-md md:border md:border-indigo-600 md:mx-auto grid grid-cols-1 md:grid-cols-2">
+    <div className="overflow-auto touch-auto md:container md:rounded-md md:border md:border-indigo-600 md:mx-auto grid grid-cols-1 md:grid-cols-2">
 
       <div className="w-full pb-10 md:col-span-2 flex bg-grey rounded-b-lg shadow-2xl">
         <div className="w-137 md:w-1/4 border-indigo-600 border rounded-md mr-10 ">
@@ -167,18 +169,18 @@ Matthew 28: 19-20
         </div>
       </div>
 
-      <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg md:col-span-2 '>
+      <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg md:col-span-2 overflow-y-auto'>
 
-        <div className='bg-custom h-96  text-silver text-center text-2xl  grid justify-items-center'>
-          <p className='p-2 mt-40'>
+        <div className='bg-custom md:h-1/5 h-1/4 md:text-xl text-silver text-center '>
+          <p className='p-2 '>
           welcome to our sanctuary
 you may sign in  below to view our services, join a group or view and contribute to a project.
           </p>
 
         </div>
 
-        <div className=''>
-          <div className='m-20'>
+        <div className='h-3/4 md:h-4/5'>
+          <div className='md:p2 m-20'>
 
              <TextField  margin="normal"
               required
@@ -192,7 +194,7 @@ you may sign in  below to view our services, join a group or view and contribute
               onChange={handleChange} sx={{width: 1}}/>
           </div>
           
-          <div className='m-20'>
+          <div className='md:p2 m-20'>
             <TextField  margin="normal"
               required
               fullWidth
@@ -205,27 +207,27 @@ you may sign in  below to view our services, join a group or view and contribute
               autoComplete="name" sx={{width: 1}}/>
           </div>
 
-          <div className='m-20'>
-          <InputLabel id="demo-simple-select-autowidth-label">Group</InputLabel>
+          <div className='md:p2 m-20'>
+          <InputLabel id="categ-autowidth-label">Group</InputLabel>
           <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
+          labelId="categ-autowidth-label"
+          id="group"
           value={group}
-          onChange={handleChangeGroup}
+          onChange={handleGroupChange}
           autoWidth
           label="Group"
         >
            <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'youth'}>Youth & Teens</MenuItem>
-          <MenuItem value={'men'}>Women's Group</MenuItem>
-          <MenuItem value={'women'}>Men's group</MenuItem>
+          <MenuItem >Youth & Teens</MenuItem>
+          <MenuItem >Women's Group</MenuItem>
+          <MenuItem >Men's group</MenuItem>
         </Select>
           </div>
 
           <div>
-          <div className='m-20'>
+          <div className='md:p2 m-20'>
 
              <TextField type='password'  margin="normal"
               required
@@ -240,7 +242,7 @@ you may sign in  below to view our services, join a group or view and contribute
           </div>
 
           </div>
-          <div className='m-20'>
+          <div className='md:p2 m-20'>
           <Button onClick={handleSubmit} variant="outlined" startIcon={<AccountCircleOutlinedIcon />}>
                          signin
                  </Button>
