@@ -31,6 +31,7 @@ export default function Home() {
   
     const handleGroupChange = (event) => {
       setGroup(event.target.value);
+      
     };
   
     
@@ -77,11 +78,24 @@ Copyright © 2024 KAG Waithaka Mission Center
       email : values.email,
       name : values.name,
       password : values.password,
-      group : group
+      groupss : group,
     }).then((res)=>{
      console.log(res)
+     
+     
 
     })
+    axios.post(
+        
+      'http://127.0.0.1:8000/api/token/',{
+          email : values.email,
+          password : values.password
+      }
+  ).then((res)=>{
+      
+      localStorage.setItem('access_token',res.data.access)
+      localStorage.setItem('refresh_token',res.data.refresh)
+  })
     
   }
 
@@ -169,9 +183,9 @@ Matthew 28: 19-20
         </div>
       </div>
 
-      <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg md:col-span-2 overflow-y-auto'>
+      <div className='bg-grey rounded-b-lg mb-10 md:m-2 shadow-lg md:col-span-2 overflow-y-auto overscroll-contain'>
 
-        <div className='bg-custom md:h-1/5 h-1/4 md:text-xl text-silver text-center '>
+        <div className='bg-custom h-1/4 md:text-xl text-silver text-center'>
           <p className='p-2 '>
           welcome to our sanctuary
 you may sign in  below to view our services, join a group or view and contribute to a project.
@@ -179,7 +193,7 @@ you may sign in  below to view our services, join a group or view and contribute
 
         </div>
 
-        <div className='h-3/4 md:h-4/5'>
+        <div className=''>
           <div className='md:p2 m-20'>
 
              <TextField  margin="normal"
@@ -220,9 +234,9 @@ you may sign in  below to view our services, join a group or view and contribute
            <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem >Youth & Teens</MenuItem>
-          <MenuItem >Women's Group</MenuItem>
-          <MenuItem >Men's group</MenuItem>
+          <MenuItem value="youth">Youth & Teens</MenuItem>
+          <MenuItem value="women">Women's Group</MenuItem>
+          <MenuItem value="men">Men's group</MenuItem>
         </Select>
           </div>
 

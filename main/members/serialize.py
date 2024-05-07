@@ -6,7 +6,7 @@ from .models import newuser
 class serialize(serializers.ModelSerializer):
     class Meta:
         model = newuser
-        fields = ['id', 'name', 'email', 'password']
+        fields = ['id', 'name', 'email', 'password','groupss']
         
     def create(self, validated_data):
         password = validated_data.pop("password")
