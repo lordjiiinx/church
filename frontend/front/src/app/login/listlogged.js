@@ -1,36 +1,22 @@
 'use client'
+
 import React from 'react';
-
 import TextField from '@mui/material/TextField';
-import axios
- from "axios";
-import { useRouter } from 'next/navigation'
 
-
-export default function ListLoggedin(Component) {
-  const router = useRouter()
- 
- 
-
-  return function Logged({ isLogged,handlesubmit }) {
-
+function WithListLoading(Component) {
+  return function WihLoadingComponent({ isLoading,handlesubmit, ...props }) {
     
-
-    
-
     function handleclick(){
       let email = document.getElementById('standard')
-      axios.post('password_reset/',{
+      axios.post('http://127.0.0.1:8000/api/password_reset/',{
         email : email.value
       }).then((res)=>{
-        router.push('resetpassword')
         
         
-      })
+        
+      })}
 
-
-    }
-    if (isLogged) return <Component />;
+    if (isLoading) return <Component />;
     else return (
 
       
@@ -60,7 +46,7 @@ export default function ListLoggedin(Component) {
                 
                 
                 <div className='size-1/2' onClick={handleclick}>forgot password? please enter email then <u>click here</u> </div>
-              <button className=' size-1/4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  m-8' type="submit">Submit</button>
+              
 
               </div>
 
@@ -85,5 +71,6 @@ export default function ListLoggedin(Component) {
      
     );
   };
-}
+  };
 
+export default WithListLoading;

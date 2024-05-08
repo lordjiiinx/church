@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from rest_framework import generics
 from .models import newuser
 from .serialize import serialize
+from .tasks import password_reset_task
+from django.dispatch import receiver
 
 
 
@@ -16,6 +18,10 @@ from django.http import HttpResponse,HttpRequest
 from rest_framework.views import APIView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+
+@receiver(reset_password_token_created)
+def sendemail(sender, instance, reset_password_token, *args, **kwargs):
+    return password_reset_task(sender, instance, reset_password_token, *args, **kwargs)
 
 
 
