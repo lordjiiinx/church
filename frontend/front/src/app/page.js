@@ -85,18 +85,7 @@ Copyright © 2024 KAG Waithaka Mission Center
      
 
     })
-    axios.post(
         
-      'http://127.0.0.1:8000/api/token/',{
-          email : values.email,
-          password : values.password
-      }
-  ).then((res)=>{
-      
-      localStorage.setItem('access_token',res.data.access)
-      localStorage.setItem('refresh_token',res.data.refresh)
-  })
-    
   }
 
   return (
