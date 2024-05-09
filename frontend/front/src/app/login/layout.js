@@ -20,15 +20,15 @@ export default function RootLayout({ children }) {
       
       
 
-        <div className=" rounded-b-lg bg-gradient-to-r md:container md:mx-auto from-pink-500 via-purple-500 to-blue-500 object-top text-black  " >
+        <div className=" rounded-b-lg md:container md:mx-auto text-#ffffff  " >
           <Box sx={{ flexGrow: 1 }}>
-              <AppBar position="static" color="transparent">
+              <AppBar position="static" color="#110808">
                    <Toolbar>
          
                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                              Home
                        </Typography>
-                       <Button color="inherit" href="/">signin</Button>
+                       <Button color="success" href="#">logout</Button>
                    </Toolbar>
                </AppBar>
           </Box>

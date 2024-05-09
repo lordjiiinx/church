@@ -4,7 +4,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 
 function WithListLoading(Component) {
-  return function WihLoadingComponent({ isLoading,handlesubmit, ...props }) {
+  return function WihLoadingComponent({ isLoading,handlesubmit }) {
     
     function handleclick(){
       let email = document.getElementById('standard')
@@ -46,7 +46,7 @@ function WithListLoading(Component) {
                 
                 
                 <div className='size-1/2' onClick={handleclick}>forgot password? please enter email then <u>click here</u> </div>
-              
+              <input type='submit' value={'submit'}></input>
 
               </div>
 

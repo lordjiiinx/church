@@ -13,8 +13,46 @@ function App() {
   const ListLoading = WithListLoading(List);
   const [appState, setAppState] = useState({
     loading: false,
-    repos: null,
+    
   });
+  const updateToken=async()=>{
+  
+ 
+    axios.post('http://127.0.0.1:8000/api/token/refresh/',{
+      refresh : localStorage.getItem('refresh_token')
+  
+    }).then((res)=>{
+      if(res.status===200){
+       
+       localStorage.removeItem('refresh_token')
+       localStorage.removeItem('access_token')
+        localStorage.setItem('access_token',res.data.access)
+        localStorage.setItem('refresh_token',res.data.refresh)
+      
+        
+      
+      }
+    })
+  
+  }
+
+
+  useEffect(()=>{
+    if(localStorage.getItem('refresh_token')!=null){
+      updateToken()
+      
+
+      setAppState({logged:true})
+      
+      
+      
+    }
+    
+
+    
+   
+    },[setAppState])
+   
 
   const handlesubmit = (e)=>{
   
@@ -28,7 +66,10 @@ function App() {
             password : e.target['password'].value
         }
     ).then((res)=>{
-        setAppState({logged:true})
+        setAppState({logged:true,
+          
+        
+        })
         localStorage.setItem('access_token',res.data.access)
         localStorage.setItem('refresh_token',res.data.refresh)
     })
@@ -41,17 +82,9 @@ function App() {
         <h1>My Repositories</h1>
       </div>
       <div className='repo-container'>
-        <ListLoading isLoading={appState.loading} repos={appState.repos} handlesubmit={handlesubmit} />
+        <ListLoading isLoading={appState.loading} handlesubmit={handlesubmit} />
       </div>
-      <footer>
-        <div className='footer'>
-          Built{' '}
-          <span role='img' aria-label='love'>
-            💚
-          </span>{' '}
-          with by Shedrack Akintayo
-        </div>
-      </footer>
+     
     </div>
   );
 }
