@@ -1,10 +1,13 @@
-import { Inter } from "next/font/google";
 
+
+import { Inter } from "next/font/google";
+import { Box, } from '@mui/system';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,23 +18,54 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     
       
       
 
-        <div className=" rounded-b-lg md:container md:mx-auto text-#ffffff  " >
-          <Box sx={{ flexGrow: 1 }}>
-              <AppBar position="static" color="#110808">
-                   <Toolbar>
+        <div className=" rounded-b-lg md:container md:mx-auto " >
+          <div className="bg-purple">
+          <Box sx={{  borderRadius: 20, 
          
-                       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                             Home
-                       </Typography>
-                       <Button color="success" href="#">logout</Button>
-                   </Toolbar>
-               </AppBar>
-          </Box>
+        }}>
+            <AppBar position="static" color="transparent">
+                 <Toolbar sx={{   mt: 40,
+         
+        }}>
+       
+                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <Button color="info" href="#">Home</Button>
+                    
+                     </Typography>
+
+                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <Button color="info" href="#">Home</Button>
+                    
+                     </Typography>
+
+                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <Button color="info" href="#">Home</Button>
+                    
+                     </Typography>
+
+                      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <Button color="info" href="#">Home</Button>
+                    
+                     </Typography>
+                     
+                 </Toolbar>
+             </AppBar>
+        </Box>
+  
+
+          
+
+          </div>
+           
+         
+     
+         
           <div>{children}</div>
         
         </div> 
