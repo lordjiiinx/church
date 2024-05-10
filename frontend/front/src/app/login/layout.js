@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
          
         }}>
             <AppBar position="static" color="transparent">
-                 <Toolbar sx={{   mt: 40,
+                 <Toolbar sx={{ margin:{sm:40,md:2}
          
         }}>
        
