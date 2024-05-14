@@ -24,18 +24,16 @@ export default function RootLayout({ children }) {
       
       
 
-        <div className=" rounded-b-lg md:container md:mx-auto " >
-          <div className="bg-purple">
-          <Box sx={{  borderRadius: 20, 
-         
-        }}>
+        <div className=" rounded-b-lg md:container md:mx-auto bg-grey" >
+          <div className="rounded-b-lg bg-purple mt-0 md:mt-2">
+          <Box >
             <AppBar position="static" color="transparent">
-                 <Toolbar sx={{ margin:{sm:40,md:2}
+                 <Toolbar sx={{ mt : 20
          
         }}>
        
                      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                     <Button color="info" href="#">Home</Button>
+                     <Button color="info" href="#">youth and teens arena</Button>
                     
                      </Typography>
 
@@ -45,12 +43,12 @@ export default function RootLayout({ children }) {
                      </Typography>
 
                      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                     <Button color="info" href="#">Home</Button>
+                     <Button color="info" href="#">Sermon</Button>
                     
                      </Typography>
 
                       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                     <Button color="info" href="#">Home</Button>
+                     <Button color="info" href="#">Projects</Button>
                     
                      </Typography>
                      

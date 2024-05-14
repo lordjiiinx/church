@@ -7,10 +7,11 @@ import WithListLoading from './listlogged';
 
 import axios
  from "axios";
-
+ 
 
 function App() {
   const ListLoading = WithListLoading(List);
+  
   const [appState, setAppState] = useState({
     loading: false,
     
@@ -42,7 +43,8 @@ function App() {
       updateToken()
       
 
-      setAppState({logged:true})
+      setAppState({loading:true})
+      
       
       
       
@@ -57,6 +59,7 @@ function App() {
   const handlesubmit = (e)=>{
   
     e.preventDefault()
+  
     
 
     axios.post(
@@ -66,22 +69,24 @@ function App() {
             password : e.target['password'].value
         }
     ).then((res)=>{
-        setAppState({logged:true,
+        setAppState({loading:true,
           
         
         })
         localStorage.setItem('access_token',res.data.access)
         localStorage.setItem('refresh_token',res.data.refresh)
+
+        router.push('/login')
     })
 
 }
   
   return (
-    <div className='App'>
-      <div className='container'>
+    <div className=''>
+      <div className=''>
         <h1>My Repositories</h1>
       </div>
-      <div className='repo-container'>
+      <div className=''>
         <ListLoading isLoading={appState.loading} handlesubmit={handlesubmit} />
       </div>
      

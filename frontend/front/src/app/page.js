@@ -7,13 +7,15 @@ import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Button from '@mui/material/Button';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import axios
  from "axios";
+
+ import { useRouter } from 'next/navigation'
 
 
 import cropped from '../../public/cropped-cropped-KAG-LOGO-e1662111185707.png'
@@ -28,11 +30,44 @@ export default function Home() {
     ''
     
   );
+  const router = useRouter()
   
     const handleGroupChange = (event) => {
       setGroup(event.target.value);
       
     };
+
+    const updateToken=async()=>{
+  
+ 
+      axios.post('http://127.0.0.1:8000/api/token/refresh/',{
+        refresh : localStorage.getItem('refresh_token')
+    
+      }).then((res)=>{
+        if(res.status===200){
+         
+         localStorage.removeItem('refresh_token')
+         localStorage.removeItem('access_token')
+          localStorage.setItem('access_token',res.data.access)
+          localStorage.setItem('refresh_token',res.data.refresh)
+        
+          
+        
+        }
+      })
+    
+    }
+  
+    useEffect(()=>{
+      if(localStorage.getItem('refresh_token')!=null){
+        updateToken()
+        router.push('/login')
+
+        
+        
+        
+      } },[])
+      
   
     
   
