@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
          
         }}>
        
-                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
                      <Button color="info" href="#">youth and teens arena</Button>
                     
                      </Typography>
