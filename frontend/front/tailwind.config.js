@@ -27,7 +27,10 @@ module.exports = {
     extend: { backgroundImage: {
 
       custom: "url('../../public/chair.png')",
-      youth: "url('../../public/IMG_9731.png')"
+      youth: "url('../../public/youthworship.png')",
+      teen: "url('../../public/IMG_9731.png')",
+
+
     
     }
       

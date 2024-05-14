@@ -8,7 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -28,23 +28,6 @@ function WithListLoading(Component) {
     const router = useRouter()
    
     
-    function Copyright() {
-      return (
-        <Typography variant="body2" color="text.secondary" align="center" >
-          {'Copyright © '}
-          <Link color="inherit" href="#">
-            <div className='text-red text-center'>
-            Waithaka, Nairobi, Kenya. Phone Number: +254 714774503. Email: kagwaithakamission@gmail.com
-  Copyright © 2024 KAG Waithaka Mission Center
-  
-            </div>
-        
-          </Link>{' '}
-          {new Date().getFullYear()}
-          {'.'}
-        </Typography>
-      );
-    }
   
   
     
@@ -133,7 +116,7 @@ function WithListLoading(Component) {
           </form>
         </Box>
         <br />
-        <Copyright />
+        
        
       </Container>
     
