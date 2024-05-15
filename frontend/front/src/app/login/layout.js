@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
@@ -47,11 +48,11 @@ export default function RootLayout({ children }) {
       
       
 
-        <div className="rounded-b-lg md:container md:mx-auto bg-grey" >
+        <div className="rounded-b-lg md:container md:mx-auto bg-grey h-full" >
           <div className="rounded-b-lg bg-purple mt-0 md:mt-2 h-1/5">
           <Box >
             <AppBar position="static" color="transparent">
-                 <Toolbar sx={{ mt : 0.4
+                 <Toolbar sx={{mt: 10
          
         }}>
        
@@ -72,6 +73,11 @@ export default function RootLayout({ children }) {
 
                       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                      <Button color="info" href="#">Projects</Button>
+                    
+                     </Typography>
+
+                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                     <Button color="info" href="#"><LogoutIcon></LogoutIcon></Button>
                     
                      </Typography>
                      
