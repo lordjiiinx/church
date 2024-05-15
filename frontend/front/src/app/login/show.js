@@ -16,7 +16,7 @@ const List = () => {
 
 
 </div>
-<div className='bg-teen p-2 h-1/4 md:text-xl h-96 md:h-48 text-black text-center rounded-b-lg mb-10 md:m-2 shadow-lg'>
+<div className='bg-teen p-2 h-1/4 md:text-xl h-96 md:h-48 text-bubble-gum text-center rounded-b-lg mb-10 md:m-2 shadow-lg'>
 <strong>
 <p>The Teens :</p>
 <p>Start children off on the way they should go, and even when they are old they will not turn from it... Proverbs 22:6</p>

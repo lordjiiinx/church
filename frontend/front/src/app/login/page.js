@@ -90,8 +90,12 @@ function App() {
   
   return (
     <div className=''>
-      <div className=''>
-        <h1>{mak?mak.name:null}</h1>
+      <div className='text-black text-center '>
+
+      
+      <h1 className="animate-bounce "><p>{mak?mak.name + ' welcome'  :null}</p></h1>
+      
+        
       </div>
       <div className=''>
         <ListLoading isLoading={appState.loading} handlesubmit={handlesubmit} />

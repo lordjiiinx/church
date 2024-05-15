@@ -93,7 +93,7 @@ export default function RootLayout({ children }) {
          
      
          
-          <div className="touch-auto h-3/5">{children}</div>
+          <div className="touch-auto h-3/5 transition ease-in-out delay-150">{children}</div>
           <div className="h-1/5"><Copyright></Copyright></div>
         
         </div> 
