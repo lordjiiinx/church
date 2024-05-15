@@ -34,6 +34,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['name'] = user.name,
         token['email']= user.email,
         token['is_staff']= user.is_staff,
+        token['groupss'] = user.groupss,
 
 
         # ...

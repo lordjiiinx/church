@@ -1,5 +1,10 @@
 import React from 'react';
+import { jwtDecode } from 'jwt-decode';
+
 const List = () => {
+  let mes=JSON.stringify(localStorage.getItem('access_token'))
+    let mak =jwtDecode(mes)
+
   return(
     <div className='bg-grey rounded-b-lg h-full md:m-4 shadow-lg md:col-span-2 overscroll-contain'>
       <div className='bg-youth md:text-xl text-red text-center h-96 md:h-48 rounded-b-lg mb-10 md:m-2 shadow-lg'>
