@@ -23,7 +23,7 @@ const List = () => {
         <div className="rounded-b-lg bg-purple mt-0 md:mt-2 h-1/5">
            <Box >
              <AppBar position="static" color="transparent">
-                  <Toolbar sx={{mt: 10
+                  <Toolbar sx={{mt: 3
           
          }}>
         
@@ -48,7 +48,11 @@ const List = () => {
                       </Typography>
  
                       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                      <Button color="info" href="#"><LogoutIcon></LogoutIcon></Button>
+                      <Button color="info" href={()=>{
+                     localStorage.removeItem('refresh_token')
+                     localStorage.removeItem('access_token')
+
+                    router.refresh()}}><LogoutIcon></LogoutIcon></Button>
                      
                       </Typography>
                       
@@ -127,36 +131,42 @@ const List = () => {
           <div className="rounded-b-lg bg-bermuda mt-0 md:mt-2 h-1/5">
              <Box >
                <AppBar position="static" color="transparent">
-                    <Toolbar sx={{mt: 10
+                    <Toolbar sx={{mt: {
+                      sm:7,
+                      xs:7,
+                      md: 0,
+                      lg:0
+                    }
             
            }}>
           
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
+                        <Typography variant="h1" component="div" sx={{ flexGrow: 1
+                        }}>
                         <Button color="info" href="#"><strong><p>WWK</p></strong></Button>
                        
                         </Typography>
    
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Typography variant="h1" component="div" sx={{ flexGrow: 1 }}>
                         <Button color="info" href="#">Home</Button>
                        
                         </Typography>
    
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Typography variant="h1" component="div" sx={{ flexGrow: 1 }}>
                         <Button color="info" href="#">Sermon</Button>
                        
                         </Typography>
    
-                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                         <Typography variant="h1" component="div" sx={{ flexGrow: 1 }}>
                         <Button color="info" href="#">Projects</Button>
                        
                         </Typography>
    
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Typography variant="h1" component="div" sx={{ flexGrow: 1 }}>
                         <Button color="info" onClick={()=>{
                      localStorage.removeItem('refresh_token')
                      localStorage.removeItem('access_token')
 
-                    router.push('/login')}}><LogoutIcon></LogoutIcon></Button>
+                    router.refresh()}}><LogoutIcon></LogoutIcon></Button>
                        
                         </Typography>
                         
@@ -177,21 +187,23 @@ const List = () => {
          </div>
              
               
-         <div className='bg-family md:text-xl text-red text-center h-96 md:h-48 rounded-b-lg mb-10 md:m-2 shadow-lg'>
+         <div className='bg-family md:text-xl text-red text-center h-96 md:h-48 rounded-b-lg mb-10 md:m-2 ease-in-out duration-600 shadow-lg'>
           
-             
-            <p><strong>Family
+             <div className='transition ease-in-out translate-x-3 translate-y-2 duration-1000 md:-translate-x-3 md:-translate-y-2 '>
+             <p><strong>Family
 </strong></p> 
             <p><strong>but as for me and my house, we will serve the Lord...Joshua 24:15</strong></p>
    
+             </div>
+            
    
    
    </div>
   
    
-   <div className='bg-tahiti h-1/4 text-black text-center rounded-b-lg mb-10 md:m-2 shadow-lg'>
-     
-   <p className='p-2'>
+   <div className='bg-tahiti  h-1/4 text-black text-center rounded-b-lg mb-10 md:m-2 shadow-lg'>
+     <div className='p-2 transition ease-in-out translate-x-3 translate-y-3 duration-1000 md:-translate-x-3 md:-translate-y-3'>
+     <p className='p-2'>
      There are many departments available for God’s glory. Anyone can participate in this department including you . If you are interest in joining the choir, or maybe the instruments like play the drums.
    </p>
    
@@ -203,6 +215,9 @@ const List = () => {
    you can watch the latest updates and sermons by clicking the sermons option above.
 To view the latest project click on the projects options above.
    </p>
+
+     </div>
+   
    </div>
    
    
