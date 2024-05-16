@@ -9,20 +9,19 @@ import axios
  from "axios";
 
 
-import { jwtDecode } from 'jwt-decode';
+
  
 
 function App() {
   const ListLoading = WithListLoading(List);
   
+
   const [appState, setAppState] = useState({
     loading: false,
     
   });
 
-  let mes=JSON.stringify(localStorage.getItem('access_token'))
-    let mak =jwtDecode(mes)
-
+  
   const updateToken=async()=>{
   
  
@@ -90,13 +89,7 @@ function App() {
   
   return (
     <div className=''>
-      <div className='text-black text-center '>
-
       
-      <h1 className="animate-bounce "><p>{mak?mak.name + ' welcome'  :null}</p></h1>
-      
-        
-      </div>
       <div className=''>
         <ListLoading isLoading={appState.loading} handlesubmit={handlesubmit} />
       </div>

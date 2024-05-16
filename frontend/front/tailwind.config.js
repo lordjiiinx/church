@@ -19,16 +19,18 @@ module.exports = {
       'purple': '#110808',
       'grey': '#d9d9d9',
       'red': '#920606',
-      'tahiti': '#3ab7bf',
+      'tahiti': '#FCE2BB',
       'silver': '#ecebff',
       'bubble-gum': '#ff77e9',
-      'bermuda': '#78dcca',
+      'bermuda': '#dcae53',
+      
     },
     extend: { backgroundImage: {
 
       custom: "url('../../public/chair.png')",
       youth: "url('../../public/youthworship.png')",
       teen: "url('../../public/IMG_9731.png')",
+      family: "url('../../public/family.png')",
 
 
     

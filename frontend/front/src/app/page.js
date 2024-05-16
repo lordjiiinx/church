@@ -116,7 +116,7 @@ Copyright © 2024 KAG Waithaka Mission Center
       groupss : group,
     }).then((res)=>{
      console.log(res)
-     
+     router.push('/login')
      
 
     })
