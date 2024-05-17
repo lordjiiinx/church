@@ -1,7 +1,7 @@
 
-
+import React from 'react';
 import { Inter } from "next/font/google";
-import { Box, } from '@mui/system';
+import { Box} from '@mui/system';
 import AppBar from '@mui/material/AppBar';
 import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,10 +11,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
+
+
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "KAG WAITHAKA LOGIN",
+  title: "KAG WAITHAKA WWk",
   
 };
 
@@ -50,11 +54,10 @@ export default function RootLayout({ children }) {
 
         <div className="rounded-b-lg md:container md:mx-auto bg-grey h-full" >
         
-           
-         
+       
      
          
-          <div className="touch-auto h-4/5 transition ease-in-out delay-150">{children}</div>
+          <div className="touch-auto h-4/5">{children}</div>
           <div className="h-1/5"><Copyright></Copyright></div>
         
         </div> 

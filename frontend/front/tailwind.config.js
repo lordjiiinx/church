@@ -31,6 +31,8 @@ module.exports = {
       youth: "url('../../public/youthworship.png')",
       teen: "url('../../public/IMG_9731.png')",
       family: "url('../../public/family.png')",
+      women: "url('../../public/women.png')",
+
 
 
     

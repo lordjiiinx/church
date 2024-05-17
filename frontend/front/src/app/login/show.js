@@ -20,7 +20,7 @@ const List = () => {
 
       return(
         <div className='bg-grey rounded-b-lg h-full md:m-4 shadow-lg md:col-span-2 overscroll-contain'>
-        <div className="rounded-b-lg bg-purple mt-0 md:mt-2 h-1/5">
+        <div className="rounded-b-lg bg-purple mt-0 md:mt-2">
            <Box >
              <AppBar position="static" color="transparent">
                   <Toolbar sx={{mt: 3
@@ -67,7 +67,7 @@ const List = () => {
            <div className='text-black text-center '>
  
        
-         <h1 className="animate-bounce "><p>name</p></h1>
+           <h1><marquee>thao</marquee></h1>
        
          
        </div>
@@ -128,7 +128,7 @@ const List = () => {
       {
         return(
           <div className='bg-grey rounded-b-lg h-full md:m-4 shadow-lg md:col-span-2 overscroll-contain'>
-          <div className="rounded-b-lg bg-bermuda mt-0 md:mt-2 h-1/5">
+          <div className="rounded-b-lg bg-bermuda mt-0 md:mt-2 ">
              <Box >
                <AppBar position="static" color="transparent">
                     <Toolbar sx={{mt: {
@@ -142,7 +142,9 @@ const List = () => {
           
                         <Typography variant="h1" component="div" sx={{ flexGrow: 1
                         }}>
-                        <Button color="info" href="#"><strong><p>WWK</p></strong></Button>
+                        <Button color="info" onClick={()=>{
+                          router.push('/women')
+                        }}><strong><p>WWK</p></strong></Button>
                        
                         </Typography>
    
@@ -178,10 +180,11 @@ const List = () => {
              
    
              </div>
-             <div className='text-black text-center '>
+             <div className='bg-bubble-gum text-black text-center '>
    
          
-           <h1 className="animate-bounce "><p>name</p></h1>
+           
+           <h1><marquee>{mak?mak.name:'no name'}</marquee></h1>
          
            
          </div>
@@ -226,6 +229,11 @@ To view the latest project click on the projects options above.
      )
 
       }
+
+     
+  }
+  else{
+    return<div>not logged in refresh</div>
   }
 
  
