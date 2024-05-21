@@ -7,7 +7,7 @@ from django.conf import settings
 from  ..models import newuser
 
 
-class serialize(serializers.ModelSerializer):
+class serialize2(serializers.ModelSerializer):
    
     
     class Meta:

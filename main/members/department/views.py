@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serialize import serialize
+from .serialize import serialize2
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -8,13 +8,13 @@ from rest_framework import status
 
 
 class join(generics.ListCreateAPIView):
-     permission_classes = [IsAuthenticated]
+     #permission_classes = [IsAuthenticated]
 
     
     
 
      def post(self,request):
-          class_serializer = serialize(data=request.data)
+          class_serializer = serialize2(data=request.data)
           if class_serializer.is_valid():
             newmember = class_serializer.save()
            
