@@ -27,8 +27,8 @@ function Groups() {
     department : department.name,
     
   
-    name :mak.name ,
-    group :mak.groupss ,
+    name :mak.name[0] ,
+    group :mak.groupss[0] ,
    
     
    },

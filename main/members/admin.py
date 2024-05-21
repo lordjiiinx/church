@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import newuser
-from .department.models import departments,events
+from .models import newuser,departments,events
 
 
-@admin.register(newuser)
+
+@admin.register(newuser,departments,events)
 class newuseradmin(admin.ModelAdmin):
     pass

@@ -7,11 +7,10 @@ from .models import newuser
 from .serialize import serialize
 from .tasks import password_reset_task
 from django.dispatch import receiver
-
+from .seri import serialize2
 
 
 from django_rest_passwordreset.signals import reset_password_token_created
-
 
 from django.http import HttpResponse,HttpRequest
 
@@ -49,6 +48,24 @@ class usercreate(APIView):
     def post(self,request):
         
         class_serializer = serialize(data=request.data)
+        if class_serializer.is_valid():
+            newuser = class_serializer.save()
+           
+
+        else :
+            raise ValueError('not saved')
+
+        if newuser:
+            return Response(status=status.HTTP_201_CREATED)
+        else :
+          return Response(class_serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+class group(APIView):
+    
+
+    def post(self,request):
+        
+        class_serializer = serialize2(data=request.data)
         if class_serializer.is_valid():
             newuser = class_serializer.save()
            
