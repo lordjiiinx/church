@@ -10,6 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useRouter } from 'next/navigation'
+import { useState,useEffect } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -19,18 +20,25 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Groups from '../component/Groups';
 import { jwtDecode } from 'jwt-decode';
 
+import axios
+ from "axios";
 
 
 
 function Page() {
-
+  
+ 
+    
     const router = useRouter()
     if(localStorage.getItem('access_token')!=null){
         let mes=JSON.stringify(localStorage.getItem('access_token'))
          let mak =jwtDecode(mes)
         
+
+        
          return (
             <div>
+
         
                     
                     <div className="rounded-b-lg bg-bermuda mt-0 md:mt-2 h-1/3">
@@ -91,7 +99,8 @@ function Page() {
                 </div>
                 <div>
                   {
-                    mak.is_staff=='true'? <div>jabb</div>: <div>   
+                    mak.is_staff=='true'? <div>jabb</div>: <div> 
+
                       <Groups />
         
                     <div>

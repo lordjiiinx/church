@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import usercreate,group
+from .views import usercreate,group,depart
 
 
 
@@ -10,6 +10,7 @@ from .views import usercreate,group
 urlpatterns = [
     path("signin", usercreate.as_view()),
     path("join/", group.as_view()),
+    path('depart/<member>/<department>', depart.as_view(), name='texts'),
     
     
 
