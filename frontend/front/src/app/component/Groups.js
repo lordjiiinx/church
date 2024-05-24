@@ -11,6 +11,8 @@ import { jwtDecode } from 'jwt-decode'
 import axios from 'axios'
 import { useState,useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Box from '@mui/material/Box';
+
 
 
 function Groups() {
@@ -229,7 +231,19 @@ function Groups() {
     </AccordionSummary>
     <AccordionDetails>
       <Typography>
-      {value.dep2==true?<div>home page instruments </div>
+      {value.dep2==true?<div>
+        <Box
+      
+      display="flex"
+      alignItems="center"
+      gap={4}
+      p={2}
+      sx={{ border: '2px solid grey' }}
+    >
+      This Box uses MUI System props for quick customization.
+    </Box>
+
+      </div>
       
       :
       

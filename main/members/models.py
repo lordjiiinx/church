@@ -51,15 +51,16 @@ class newuser(AbstractUser):
 
 class departments(models.Model):
   member =models.ForeignKey(settings.AUTH_USER_MODEL,on_delete = models.CASCADE)
-  department = models.CharField(max_length=255)
+  department = models.CharField(max_length=120)
   joined_date = models.DateTimeField(default=datetime.now)
   name = models.CharField(max_length=120)
   group = models.CharField(max_length=120)
  
 class events(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
-    event = models.CharField(max_length=120)
+    date = models.DateTimeField()
+    event = models.CharField(max_length=400)
     department = models.CharField(max_length=120)
+    
 
 
 # Create your models here.

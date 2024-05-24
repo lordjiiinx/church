@@ -9,11 +9,13 @@ from .tasks import password_reset_task
 from django.dispatch import receiver
 from .seri import serialize2
 from rest_framework import generics
-
+from .eveseriarize import eveserialize
 from django.db.models import Q
 from django_rest_passwordreset.signals import reset_password_token_created
 
 from .models import departments
+from .models import events
+
 
 from rest_framework.views import APIView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -90,4 +92,10 @@ class depart(generics.ListAPIView):
         department = self.kwargs['department']
         return departments.objects.filter(Q(member= member,department=department))
 
-    
+class createvent(generics.ListCreateAPIView):
+     queryset = events.objects.all()
+     serializer_class = eveserialize
+     permission_classes = [IsAuthenticated]
+
+
+
