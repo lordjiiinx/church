@@ -8,7 +8,12 @@ import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 
+import { useTheme } from '@mui/material/styles';
+
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -32,6 +37,51 @@ import axios
 
 
 function Page() {
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3,
+          width:1
+         }}>
+          {children}
+        </Box>
+      )}
+        </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+function a11yProps(index) {
+  return {
+    id: `full-width-tab-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`,
+  };
+}
+
+const theme = useTheme();
+const [value, setValue] = useState();
+const handleChangeIndex = (index) => {
+  setValue(index);
+};
+
+const handleChange = (event, newValue) => {
+  setValue(newValue);
+};
+
    
   const [date, setdate] =useState();
   const [group, setGroup] = useState(
@@ -217,84 +267,115 @@ function Page() {
                      
            
                      </div>
-                <div className='bg-women h-72 w-3/4'>
+                     <div className=' flex justify-center'>
+                     <div className='bg-women h-72 w-3/4 '>
                     
-                </div>
+                    </div>
+
+                     </div>
+             
                 <div>
                   {
                     mak.is_staff=='true' && mak.groupss[0]=='women'? <div className='grid grid-cols-1 justify-items-center'>
-                      <form onSubmit={handleSubmit} className='w-full'>
-                          
-                      <div className='p-2 w-full flex justify-center'>
-          <InputLabel id="categ-autowidth-label">department</InputLabel>
-          <Select
-          labelId="categ-autowidth-label"
-          id="group"
-          value={group}
-          onChange={handleGroupChange}
-          autoWidth
-          label="Group"
-          sx={
-            {
-              width: 1/4,
-            }
-          }
+                         <Box sx={{ bgcolor: 'background.paper', width: 1}}>
+                         
+      <AppBar position="static">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="secondary"
+          textColor="inherit"
+          variant="fullWidth"
+          aria-label="full width tabs example"
         >
-           <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value="choir">choir</MenuItem>
-          <MenuItem value="usher">usher</MenuItem>
-          <MenuItem value="instruments">instruments</MenuItem>
-        </Select>
-          </div>
-
-          <div className='w-full p-2 flex justify-center'>
-                 <LocalizationProvider  dateAdapter={AdapterDayjs}>
-      
-                <DatePicker label="event scheduled date" value={date}
-                        onChange={(newValue) => setdate(newValue)} sx={
-                          {
-                            width:1/4,
-                          }
-                        }  />
-        
-                 </LocalizationProvider>
-      
-
-           </div>
-                      <div className='m-2 w-3/4 flex justify-center '>
-                      <Textarea
-
-                          id='event'
-                          
-                          maxRows={4}
-                          name='event'
-                          sx={
-                           [
-                            {
-                              width: 1,
-                            }
-                           ]
-                          }
-                          aria-label="maximum height"
-                          
+          <Tab label="Add event to a department" {...a11yProps(0)} />
+          <Tab label="Add sermon to the Women's group" {...a11yProps(1)} />
+          
+        </Tabs>
+      </AppBar>
     
-                            />
-                      </div>
-
+        <TabPanel value={value} index={0} >
+        <Box component='form' sx={{
+           p: 2, border: '1px dashed grey',borderRadius:'20px',
+        }} onSubmit={handleSubmit} className='w-full'>
+                          
+                          <div className='p-2 w-full flex justify-center'>
+              <InputLabel id="categ-autowidth-label" >department</InputLabel>
+              <Select
+              labelId="categ-autowidth-label"
+              id="group"
+              value={group}
+              onChange={handleGroupChange}
+              autoWidth
+              label="Group"
+              sx={
+                {
+                  width: 1/2,
+                }
+              }
+            >
+               <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value="choir">choir</MenuItem>
+              <MenuItem value="usher">usher</MenuItem>
+              <MenuItem value="instruments">instruments</MenuItem>
+            </Select>
+              </div>
+    
+              <div className='w-full p-2 flex justify-center'>
+                     <LocalizationProvider  dateAdapter={AdapterDayjs}>
+          
+                    <DatePicker label="event scheduled date" value={date}
+                            onChange={(newValue) => setdate(newValue)} sx={
+                              {
+                                width:1/2,
+                                marginLeft: 10
+                              }
+                            }  />
+            
+                     </LocalizationProvider>
+          
+    
+               </div>
+                          <div className='p-2 w-full flex justify-center '>
+                          <Textarea
+    
+                              id='event'
+                              
+                              maxRows={4}
+                              name='event'
+                              sx={
+                               [
+                                {
+                                  width: 3/4,
+                                }
+                               ]
+                              }
+                              aria-label="maximum height"
+                              
+        
+                                />
+                          </div>
+    
+                     
+    
+              <div className='p-2 w-full flex justify-center'>
+              <Button type='submit' variant="outlined">
+                             save
+                     </Button>
+    
                  
+              </div>
+    
+    
+                          </Box>
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          Item Two
+        </TabPanel>
 
-          <div className='md:p2 m-20'>
-          <Button type='submit' variant="outlined">
-                         save
-                 </Button>
-
-             
-          </div>
-
-
-                      </form>
+    </Box>
                       
                     
 

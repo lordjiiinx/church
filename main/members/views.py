@@ -97,5 +97,18 @@ class createvent(generics.ListCreateAPIView):
      serializer_class = eveserialize
      permission_classes = [IsAuthenticated]
 
+class retrieve(generics.RetrieveUpdateDestroyAPIView):
+    queryset = events.objects.all()
+    serializer_class = eveserialize
+    permission_classes = [IsAuthenticated]
+    
+         
 
 
+class retrieveall(generics.ListAPIView):
+    queryset = events.objects.all()
+    serializer_class = eveserialize
+    permission_classes = [IsAuthenticated]
+    def get_queryset(self):
+        department = self.kwargs['department']
+        return events.objects.filter(department=department)
